@@ -71,7 +71,7 @@ function generatePostTemplate(singlePost) {
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+                        <img class="profile-pic" src="${image}" alt="Phil Mangione">                    
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">Phil Mangione</div>
@@ -99,4 +99,14 @@ function generatePostTemplate(singlePost) {
         </div>
     `;
     return post;
+}
+
+//creo funzione per gestire immagine di profilo per chi non ce l'ha
+function profilePictureimage(image) {
+    let profilePictureImage;
+    if(image) {
+        profilePictureImage = `<img class="profile-pic" src="${image}" alt="Phil Mangione">`
+    } else {
+        profilePictureImage = `<span>Nessuna immagine di profilo</span>`
+    }
 }
