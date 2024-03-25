@@ -113,7 +113,7 @@ function profilePictureImage(image) {
     if(image) {
         profilePictureImage = `<img class="profile-pic" src="${image}" alt="Phil Mangione">`
     } else {
-        profilePictureImage = `<span>Nessuna immagine di profilo</span>`
+        profilePictureImage = `<span class="profile-pic-default">LC</span>`
     }
     return profilePictureImage;
 }
