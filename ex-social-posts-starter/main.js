@@ -106,6 +106,20 @@ function generatePostTemplate(singlePost) {
     return postTemplate;
 }
 
+//aggiungo event listener su mi piace
+const allLikes = document.querySelectorAll('.js-like-button');
+const allLikesCounter = document.querySelectorAll('.js-like-counter');
+let postsLiked = []
+
+//se schiaccio mi piace il like diventa verde e pusho il post in un array separato
+allLikes.forEach((likeButton, index) => {
+    likeButton.addEventListener('click', function() {
+        const relatedLikeCounter = allLikes[index];
+        relatedLikeCounter.classList.add('like-button--liked');
+        postsLiked.push(posts[index].id)
+        console.log(postsLiked)
+    });
+});
 
 //creo funzione per gestire immagine di profilo per chi non ce l'ha
 function profilePictureImage(image) {
