@@ -108,10 +108,10 @@ function generatePostTemplate(singlePost) {
 
 
 //creo funzione per gestire immagine di profilo per chi non ce l'ha
-function profilePictureimage(image) {
+function profilePictureImage(image) {
     let profilePictureImage;
     if(image) {
-        profilePictureImage = `<img class="profile-pic" src="${author.image}" alt="Phil Mangione">`
+        profilePictureImage = `<img class="profile-pic" src="${image}" alt="Phil Mangione">`
     } else {
         profilePictureImage = `<span>Nessuna immagine di profilo</span>`
     }
