@@ -71,7 +71,7 @@ function generatePostTemplate(singlePost) {
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="${image}" alt="Phil Mangione">                    
+                        ${profilePictureImage(image)}                    
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">Phil Mangione</div>
@@ -109,4 +109,5 @@ function profilePictureimage(image) {
     } else {
         profilePictureImage = `<span>Nessuna immagine di profilo</span>`
     }
+    return profilePictureImage;
 }
