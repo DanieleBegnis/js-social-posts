@@ -61,17 +61,22 @@ const posts = [
     }
 ];
 
-
+//ciclo che stampa tutti i post
+const mainContainer = document.querySelector('#container');
+posts.forEach((singlePost) => {
+    const postTemplate = generatePostTemplate(singlePost);
+    mainContainer.innerHTML += postTemplate;
+});
 
 //funzione che genera il post
 function generatePostTemplate(singlePost) {
     const {id, content, media, author, likes, created} = singlePost;
-    const post =`
+    const postTemplate =`
     <div class="post">
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        ${profilePictureImage(image)}                    
+                        ${profilePictureImage(author.image)}                    
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${author.name}</div>
@@ -81,7 +86,7 @@ function generatePostTemplate(singlePost) {
             </div>
             <div class="post__text">${content}</div>
             <div class="post__image">
-                ${media}
+                <img src=${media} alt="">
             </div>
             <div class="post__footer">
                 <div class="likes js-likes">
@@ -98,7 +103,7 @@ function generatePostTemplate(singlePost) {
             </div>            
         </div>
     `;
-    return post;
+    return postTemplate;
 }
 
 
@@ -106,7 +111,7 @@ function generatePostTemplate(singlePost) {
 function profilePictureimage(image) {
     let profilePictureImage;
     if(image) {
-        profilePictureImage = `<img class="profile-pic" src="${image}" alt="Phil Mangione">`
+        profilePictureImage = `<img class="profile-pic" src="${author.image}" alt="Phil Mangione">`
     } else {
         profilePictureImage = `<span>Nessuna immagine di profilo</span>`
     }
