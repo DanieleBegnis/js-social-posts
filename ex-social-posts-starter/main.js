@@ -80,7 +80,7 @@ function generatePostTemplate(singlePost) {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${author.name}</div>
-                        <div class="post-meta__time">${created}</div>
+                        <div class="post-meta__time">${standardiseDate(created)}</div>
                     </div>                    
                 </div>
             </div>
@@ -111,11 +111,13 @@ const allLikes = document.querySelectorAll('.js-like-button');
 const allLikesCounter = document.querySelectorAll('.js-like-counter');
 let postsLiked = []
 
+
 //se schiaccio mi piace il like diventa verde e pusho il post in un array separato
-allLikes.forEach((likeButton, index) => {
+allLikes.forEach((likeButton, index, likes) => {
     likeButton.addEventListener('click', function() {
         const relatedLikeCounter = allLikes[index];
         relatedLikeCounter.classList.add('like-button--liked');
+        //  TODO ADD NUMBER LIKE COUNTER
         postsLiked.push(posts[index].id)
         console.log(postsLiked)
     });
@@ -130,4 +132,14 @@ function profilePictureImage(image) {
         profilePictureImage = `<span class="profile-pic-default">LC</span>`
     }
     return profilePictureImage;
+}
+
+//TODO UPDATE NEWDATE 
+//creo funzione per invertire ordine data
+function standardiseDate(created) {
+    const dateArray = created.split('-');
+    const [year, day, month] = dateArray;
+    const newDate = `${day} ${month} ${year}`;
+    console.log(newDate)
+    return newDate;
 }
